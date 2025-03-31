@@ -6,7 +6,7 @@ function PantherTelemetry() {
     <>
       <div className='componentContent'>
         <div className='componentTitle'>
-          Location Data
+          Telemetry Data
         </div>
 
         <div className='maincontent'>
