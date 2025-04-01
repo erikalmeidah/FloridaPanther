@@ -25,10 +25,33 @@
     width: 40%;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .componentRightside {
     background-color: blueviolet;
+}
+
+.barGraph {
+    height: 400px;
+    width: 100%;
+}
+
+.minAge1, .maxAge1, .sex1, .minYear1, .maxYear1, .minAge2, .maxAge2, .sex2, .Go2 {
+    background-color: black;
+    color: white;
+}
+
+.queryMetadata {
+    color: white;
+}
+
+.queryTitle {
+
+}
+
+.queryDesc {
+
 }

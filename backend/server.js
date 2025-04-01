@@ -27,10 +27,10 @@ db.connect((err) => {
 });
 
 // Mortality queries
-app.post('/mortalityQuery2', (req, res) => {
-  const { minAge2, maxAge2, sex2 } = req.body;
+app.post('/mortalityQuery1', (req, res) => {
+  const {minAge1, maxAge1, sex1, minYear1, maxYear1} = req.body;
 
-  if (!minAge2 || !maxAge2 || !sex2) {
+  if(!minAge1 || !maxAge1 || !sex1 || !minYear1 || !maxYear1) {
     return res.status(400).json({ error: 'Please provide all fields' });
   }
 
@@ -40,9 +40,36 @@ app.post('/mortalityQuery2', (req, res) => {
     INNER JOIN Panther ON Mortality.PantherID = Panther.PantherID
     WHERE Panther.Age BETWEEN ? AND ?
     AND Panther.Sex = ?
-    AND Mortality.Year BETWEEN 1980 AND 2025
+    AND Mortality.Year BETWEEN ? AND ?
     GROUP BY X, Y
     HAVING MortalityCount > 0;
+  `;
+
+  db.execute(query, [minAge1, maxAge1, sex1, minYear1, maxYear1], (err, results) => {
+    if(err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({error: 'Database query failed'});
+    }
+
+    res.json(results);
+  });
+});
+
+app.post('/mortalityQuery2', (req, res) => {
+  const { minAge2, maxAge2, sex2 } = req.body;
+
+  if (!minAge2 || !maxAge2 || !sex2) {
+    return res.status(400).json({ error: 'Please provide all fields' });
+  }
+
+  const query = `
+    SELECT Mortality.Cause, COUNT(*) AS CauseCount
+    FROM Mortality
+    INNER JOIN Panther ON Mortality.PantherID = Panther.PantherID
+    WHERE Panther.Age BETWEEN ? AND ?
+    AND Panther.Sex = ?
+    GROUP BY Mortality.Cause
+    ORDER BY CauseCount DESC;
   `;
 
   db.execute(query, [minAge2, maxAge2, sex2], (err, results) => {
