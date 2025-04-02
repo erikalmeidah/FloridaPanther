@@ -1,6 +1,7 @@
 import './PantherMortality.css'
 import React, { useState } from 'react'
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import BarGraph from '../components/BarGraph/BarGraph.jsx'
+import HeatMap from '../components/heatmap/Heatmap.jsx'
 
 function PantherMortality() {
 
@@ -135,9 +136,11 @@ function PantherMortality() {
                 Go
               </button>
             </div>
-            <div className='heatmap'>
-
-            </div>
+            {data1.length > 0 && (
+              <div className="heatmap">
+                <HeatMap data={data1} />
+              </div>
+            )}
           </div>
 
           <div className='componentRightside'>
@@ -170,46 +173,8 @@ function PantherMortality() {
               </button>
             </div>
             {data2.length > 0 && (
-              <div className='barGraph'>
-                <ResponsiveContainer width="100%" height={400}>
-                  <BarChart 
-                    data={data2} 
-                    layout="vertical" 
-                    margin={{ top: 20, right: 30, left: 50, bottom: 5 }}
-                  >
-                    <XAxis 
-                      type="number" 
-                      domain={[0, 'dataMax']}
-                      stroke="#FFFFFF"
-                      tick={{ fill: '#FFFFFF', fontSize: 20 }}
-                      tickLine={{ stroke: '#FFFFFF' }}
-                    />
-                    <YAxis 
-                      dataKey="Cause" 
-                      type="category" 
-                      width={150}
-                      stroke="#FFFFFF"
-                      tick={{ fill: '#FFFFFF', fontSize: 20, fontFamily: 'Arial' }}
-                    />
-                    <Legend 
-                      wrapperStyle={{
-                        paddingTop: '15px',
-                        fontSize: '14px',
-                        fontFamily: 'Arial',
-                        color: '#FFFFFF'
-                      }}
-                      iconSize={12}
-                      iconType="rect"
-                    />
-                    <Bar 
-                      dataKey="CauseCount"
-                      fill="#000000"
-                      name="Count"
-                      barSize={25}
-                      radius={[4, 4, 0, 0]} 
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
+              <div className="barGraph">
+                <BarGraph data={data2} />
               </div>
             )}
           </div>

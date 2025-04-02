@@ -10,8 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.4.8",
+    "chartjs-chart-matrix": "^3.0.0",
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "pandas": "^0.0.3",
+    "proj4": "^2.15.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0",
     "recharts": "^2.15.1"
   },
   "devDependencies": {

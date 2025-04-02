@@ -10,11 +10,11 @@ function PantherTelemetry() {
         </div>
 
         <div className='maincontent'>
-          <div className='componentLeftside'>
+          <div className='telemetryComponentLeftside'>
             Query 1 here
           </div>
 
-          <div className='componentRightside'>
+          <div className='telemetryComponentRightside'>
             Query 2 here
           </div>
         </div>

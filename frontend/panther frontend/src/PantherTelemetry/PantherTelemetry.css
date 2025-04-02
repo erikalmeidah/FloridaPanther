@@ -20,15 +20,14 @@
     margin-top: 20px;
 }
 
-.componentLeftside, .componentRightside {
+.telemetryComponentLeftside, .telemetryComponentRightside {
     background-color: bisque;
     width: 40%;
     padding: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.componentRightside {
-    background-color: blueviolet;
+.telemetryComponentRightside {
+    background-color: rgb(121, 51, 51);
 }

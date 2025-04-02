@@ -20,12 +20,11 @@
     margin-top: 20px;
 }
 
-.componentLeftside, .componentRightside {
+.defaultComponentLeftside, .defaultComponentRightside {
     background-color: bisque;
     width: 40%;
     padding: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -36,8 +35,8 @@
     color: white;
 }
 
-.componentRightside {
-    background-color: blueviolet;
+.defaultComponentRightside {
+    background-color: rgb(156, 28, 28);
 }
 
 .florida {

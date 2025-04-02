@@ -26,12 +26,11 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .componentRightside {
-    background-color: blueviolet;
+    background-color: rgb(107, 43, 43);
 }
 
 .barGraph {

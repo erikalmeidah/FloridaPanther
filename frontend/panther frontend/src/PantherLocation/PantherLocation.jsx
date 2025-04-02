@@ -10,11 +10,11 @@ function PantherLocation() {
         </div>
 
         <div className='maincontent'>
-          <div className='componentLeftside'>
+          <div className='locationComponentLeftside'>
             Query 1 here
           </div>
 
-          <div className='componentRightside'>
+          <div className='locationComponentRightside'>
             Query 2 here
           </div>
         </div>
