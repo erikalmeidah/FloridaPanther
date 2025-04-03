@@ -25,9 +25,22 @@
     width: 40%;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .telemetryComponentRightside {
     background-color: rgb(121, 51, 51);
+}
+
+.queryMetadata {
+    color: white;
+}
+
+.queryTitle {
+
+}
+
+.queryDesc {
+
 }

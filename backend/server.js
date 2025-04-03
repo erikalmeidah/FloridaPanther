@@ -26,6 +26,34 @@ db.connect((err) => {
   }
 });
 
+// Telemetry queries
+app.post('/telemetryQuery1', (req, res) => {
+  const {sex1} = req.body;
+
+  if(!sex1) {
+    return res.status(400).json({ error: 'Please provide all fields' });
+  }
+
+  const query = `
+    SELECT X, Y, COUNT(*) AS VisitCount
+    FROM Telemetry T
+    INNER JOIN Panther P ON T.PantherID = P.PantherID
+    WHERE P.Sex = ?
+    GROUP BY X, Y
+    ORDER BY VisitCount DESC
+    LIMIT 10;
+  `;
+
+  db.execute(query, [sex1], (err, results) => {
+    if(err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({error: 'Database query failed'});
+    }
+
+    res.json(results);
+  });
+});
+
 // Mortality queries
 app.post('/mortalityQuery1', (req, res) => {
   const {minAge1, maxAge1, sex1, minYear1, maxYear1} = req.body;

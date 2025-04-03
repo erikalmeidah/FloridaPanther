@@ -2,7 +2,6 @@ import './App.css'
 import Header from './components/Header/Header.jsx'
 import React, { useState } from 'react'
 import DefaultPage from './DefaultPage/DefaultPage.jsx'
-import PantherLocation from './PantherLocation/PantherLocation.jsx'
 import PantherMortality from './PantherMortality/PantherMortality.jsx'
 import PantherTelemetry from './PantherTelemetry/PantherTelemetry.jsx'
 import 'leaflet/dist/leaflet.css';
@@ -20,7 +19,6 @@ function App() {
       
       <div className='content'>
         <main>
-          {selectedTheme === 'location' && <PantherLocation />}
           {selectedTheme === 'mortality' && <PantherMortality />}
           {selectedTheme === 'telemetry' && <PantherTelemetry />}
           {selectedTheme === '' && <DefaultPage />}

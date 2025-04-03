@@ -13,7 +13,6 @@ function Header({ selectedTheme, handleThemeSelect }) {
         <div className="rightside">
           <select value={selectedTheme} onChange={handleThemeSelect} className="query-select">
             <option value="">Select Analysis Theme</option>
-            <option value="location">Panther Location Analysis</option>
             <option value="mortality">Panther Mortality Analysis</option>
             <option value="telemetry">Panther Telemetry Data Analysis</option>
           </select>
