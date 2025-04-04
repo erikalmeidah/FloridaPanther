@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
-import L from 'leaflet';
+import L, { circleMarker } from 'leaflet';
 import 'leaflet.heat';
 import './Heatmap.css';
 import { useEffect, useRef, useState } from 'react';
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 function HeatMap({ data }) {
   const mapRef = useRef(null);
   const [heatMapData, setHeatMapData] = useState([]);
+  const markerRefs = useRef([]);
 
   useEffect(() => {
     const newHeatMapData = data.map(point => {
@@ -29,6 +30,11 @@ function HeatMap({ data }) {
       map.removeLayer(window.heatLayer);
     }
 
+    markerRefs.current.forEach(marker => {
+      map.removeLayer(marker);
+    });
+    markerRefs.current = [];
+
     window.heatLayer = L.heatLayer(heatMapData, {
       radius: 20,
       blur: 20,
@@ -45,17 +51,22 @@ function HeatMap({ data }) {
     }).addTo(map);
 
     heatMapData.forEach(point => {
-      L.circleMarker([point[0], point[1]], {
+      const marker = L.circleMarker([point[0], point[1]], {
         radius: 1,
         color: 'red',
         fillOpacity: 0.5
       }).addTo(map);
+      markerRefs.current.push(marker);
     });
 
     return () => {
       if (window.heatLayer) {
         map.removeLayer(window.heatLayer);
       }
+      markerRefs.current.forEach(point => {
+        map.removeLayer(point);
+      });
+      markerRefs.current = [];
     };
   }, [heatMapData]);
 
