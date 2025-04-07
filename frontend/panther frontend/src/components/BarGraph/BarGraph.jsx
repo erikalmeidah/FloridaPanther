@@ -13,16 +13,16 @@ function BarGraph({data}) {
             <XAxis 
                 type="number" 
                 domain={[0, 'dataMax']}
-                stroke="#FFD700"
-                tick={{ fill: '#FFD700', fontSize: 20 }}
-                tickLine={{ stroke: '#FFD700' }}
+                stroke="#FFFFFF"
+                tick={{ fill: '#FFFFFF', fontSize: 20 }}
+                tickLine={{ stroke: '#FFFFFF' }}
             />
             <YAxis 
                 dataKey="Cause" 
                 type="category" 
                 width={150}
-                stroke="#FFD700"
-                tick={{ fill: '#FFD700', fontSize: 15, fontFamily: 'Arial' }}
+                stroke="#FFFFFF"
+                tick={{ fill: '#FFFFFF', fontSize: 15, fontFamily: 'Arial' }}
             />
             <Legend 
                 wrapperStyle={{
