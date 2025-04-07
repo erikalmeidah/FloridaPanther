@@ -1,0 +1,48 @@
+.componentContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.componentTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: gold;
+}
+
+.maincontent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.telemetryComponentLeftside, .telemetryComponentRightside {
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.queryMetadata {
+    color:  rgb(248, 191, 48);
+}
+
+.queryTitle {
+    color: gold;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.queryDesc {
+    font-size: 15px;
+}
+
+.graph {
+    height: 400px;
+    width: 100%;
+}
