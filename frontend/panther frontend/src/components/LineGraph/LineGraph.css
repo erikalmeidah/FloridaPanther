@@ -1,0 +1,35 @@
+.recharts-responsive-container {
+    margin: 20px 0;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .recharts-tooltip-wrapper {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .recharts-default-tooltip {
+    background-color: #ffffff !important;
+    border: 1px solid #FFD700 !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+  }
+  
+  .recharts-tooltip-label {
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 5px;
+  }
+  
+  .recharts-tooltip-item-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recharts-tooltip-item {
+    color: #000000 !important;
+    font-size: 12px !important;
+  }

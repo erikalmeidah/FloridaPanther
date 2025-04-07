@@ -3,8 +3,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid white;
-    background-color: rgb(5, 5, 219);
+    border: 2px solid gold;
+    border-radius: 2px;
+    background-color: rgb(4, 4, 155);
     margin: 0px;
     padding: 10px;
 }
@@ -23,15 +24,15 @@
     margin-right: 50px;
     border-radius: 20px;
     padding: 5px;
-    border: 1px solid white;
-    background-color: rgb(55, 83, 245);
+    border: 2px solid gold;
+    background-color: rgb(17, 48, 221);
 }
 
 .title {
     font-family: Arial;
     font-size: 25px;
     font-size: 700;
-    color: white;
+    color: gold;
 }
 
 .rightside {
@@ -44,6 +45,6 @@
 
 .query-select {
     font-size: 20px;
-    color: white;
+    color: rgb(243, 188, 51);
     background-color: black;
 }

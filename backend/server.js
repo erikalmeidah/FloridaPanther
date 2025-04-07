@@ -41,10 +41,37 @@ app.post('/telemetryQuery1', (req, res) => {
     WHERE P.Sex = ?
     GROUP BY X, Y
     ORDER BY VisitCount DESC
-    LIMIT 10;
+    LIMIT 100;
   `;
 
   db.execute(query, [sex1], (err, results) => {
+    if(err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({error: 'Database query failed'});
+    }
+
+    res.json(results);
+  });
+});
+
+app.post('/telemetryQuery2', (req, res) => {
+  const {minAge2, maxAge2, sex2} = req.body;
+
+  if(!sex2 || !minAge2 || !maxAge2) {
+    return res.status(400).json({ error: 'Please provide all fields' });
+  }
+
+  const query = `
+    SELECT YEAR(FLGTDate) AS Year, COUNT(*) AS ObservationCount
+    FROM Telemetry
+    INNER JOIN Panther ON Telemetry.PantherID = Panther.PantherID
+    WHERE Panther.Age BETWEEN ? AND ?
+    AND Panther.Sex = ?
+    GROUP BY YEAR(FLGTDate)
+    ORDER BY Year;
+  `;
+
+  db.execute(query, [minAge2, maxAge2, sex2], (err, results) => {
     if(err) {
       console.error('Error executing query:', err);
       return res.status(500).json({error: 'Database query failed'});

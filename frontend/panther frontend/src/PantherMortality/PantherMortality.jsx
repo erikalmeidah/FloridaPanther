@@ -132,7 +132,7 @@ function PantherMortality() {
                   Female
                 </option>
               </select>
-              <button onClick={handleGo1Click} className='Go2'>
+              <button onClick={handleGo1Click} className='Go1'>
                 Go
               </button>
             </div>
